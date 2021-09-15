@@ -18,17 +18,21 @@ function App() {
 
       <Normalize/>
 
-      {
-        (!imageState.uploading && imageState.url === '') ? 
-        <Index
-        onDrop={onDrop}
-        uploadImage={uploadImage}
-        /> : 
-        imageState.uploading ?
-        <Loading/> :
-        <UploadedImage
-        url={imageState.url}/>
-      }
+      <div className='root'>
+
+        {
+          (!imageState.uploading && imageState.url === '') ? 
+          <Index
+          onDrop={onDrop}
+          uploadImage={uploadImage}
+          /> : 
+          imageState.uploading ?
+          <Loading/> :
+          <UploadedImage
+          url={imageState.url}/>
+        }
+
+      </div>
 
     </>
   );

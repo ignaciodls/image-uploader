@@ -110,6 +110,96 @@
 
 }
 
+.image-container{
+
+    position: relative;
+    overflow: hidden;
+    width: 338px;
+    height: 225px;
+    border-radius: 12px;
+    object-fit: cover;
+
+}
+
+.image-container:before {
+    content: " ";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 80px;
+    height: 80px;
+    border: 2px solid #2F80ED;
+    border-color: transparent #2F80ED transparent #2F80ED;
+    border-radius: 50%;
+    animation: loader 1s linear infinite;
+}
+
+  @keyframes loader {
+    0% {
+      transform: translate(-50%,-50%) rotate(0deg);
+    }
+    100% {
+      transform: translate(-50%,-50%) rotate(360deg);
+    }
+  }
+  
+  .image-container > img {
+
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100% !important;
+    height: 100% !important;
+  }
+
+.link-container{
+
+    width: 338px;
+    height: 34px;
+    background: #F6F8FB;
+    border: 1px solid #E0E0E0;
+    border-radius: 8px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+}
+
+.url{
+    width: calc(100% - 74px);
+    padding: 10px;
+    font-size: 12px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    user-select: none;
+
+}
+
+.copy-button{
+
+    color: white;
+    background: #2F80ED;
+    height: 30px;
+    width: 74px;
+    outline: none;
+    border:none;
+    border-radius: 8px;
+    font-size: 12px;
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.copy-button:hover{
+    cursor: pointer;
+}
+
+
 @keyframes uploading{
 
     from {left: -30%;}
