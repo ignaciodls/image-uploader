@@ -1,24 +1,36 @@
-import logo from './logo.svg';
-import './App.css';
+import Index from "./components/Index";
+import Loading from "./components/Loading";
+import UploadedImage from "./components/UploadedImage";
+
+
+import useUploadImage from "./hooks/useUploadImage";
+
+import './style/global.css'
+
+import Normalize from 'react-normalize'
 
 function App() {
+
+  const {imageState, onDrop, uploadImage} = useUploadImage()
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+
+      <Normalize/>
+
+      {
+        (!imageState.uploading && imageState.url === '') ? 
+        <Index
+        onDrop={onDrop}
+        uploadImage={uploadImage}
+        /> : 
+        imageState.uploading ?
+        <Loading/> :
+        <UploadedImage
+        url={imageState.url}/>
+      }
+
+    </>
   );
 }
 
